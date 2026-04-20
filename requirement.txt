@@ -1,8 +1,0 @@
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-yfinance==0.2.37
-streamlit
-plotly
