@@ -39,3 +39,16 @@ if uploaded_file is not None:
     y_pred = model.predict(X_test)
 
     st.write("Accuracy:", accuracy_score(y_test, y_pred))
+    import streamlit as st
+import matplotlib.pyplot as plt
+
+st.write("Model Accuracy:", accuracy_score(y_test, y_pred))
+
+fig, ax = plt.subplots()
+ax.plot(merged['Date'], merged['Close'], label='Close Price')
+ax.scatter(merged.loc[X_test.index, 'Date'],
+           merged.loc[X_test.index, 'Close'],
+           c=merged.loc[X_test.index, 'Predicted'],
+           cmap='coolwarm', label='Predicted Up/Down')
+ax.legend()
+st.pyplot(fig)
